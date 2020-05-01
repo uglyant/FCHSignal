@@ -411,22 +411,22 @@ def signProductionRelease = { variant ->
         outputFile
     }
 }
-
+/*
 task signProductionPlayRelease {
     doLast {
         signProductionRelease(android.applicationVariants.find { (it.name == 'playRelease') })
     }
-}
+}*/
 
-task signProductionWebsiteRelease {
+/*task signProductionWebsiteRelease {
     doLast {
         def  variant       = android.applicationVariants.find { (it.name == 'websiteRelease') }
         File signedRelease = signProductionRelease(variant).find { it.name.contains('universal') }
         assembleWebsiteDescriptor(variant, signedRelease)
     }
-}
+}*/
 
-tasks.whenTaskAdded { task ->
+/*tasks.whenTaskAdded { task ->
     if (task.name.equals("assemblePlayRelease")) {
         task.finalizedBy signProductionPlayRelease
     }
@@ -434,7 +434,10 @@ tasks.whenTaskAdded { task ->
     if (task.name.equals("assembleWebsiteRelease")) {
         task.finalizedBy signProductionWebsiteRelease
     }
-}
+
+
+
+}*/
 
 def getLastCommitTimestamp() {
     new ByteArrayOutputStream().withStream { os ->
